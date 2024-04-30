@@ -14,6 +14,22 @@ public class MessageCompressor {
             }
         }
 
+         return compressedMessage.toString();
+    }
+
+    public String decompressMessage(String compressedMessage) {
+        StringBuilder decompressedMessage = new StringBuilder();
+
+        for (int i = 0; i < compressedMessage.length(); i += 2) {
+            int count = Character.getNumericValue(compressedMessage.charAt(i));
+            char c = compressedMessage.charAt(i + 1);
+            decompressedMessage.append(String.valueOf(c).repeat(count));
+        }
+
+        return decompressedMessage.toString();
+    }
+}
+
         
 
   
